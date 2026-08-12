@@ -61,6 +61,11 @@ foreach ($forcedEnvs as $key => $val) {
     }
 }
 
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+    $_SERVER['HTTPS'] = 'on';
+    $_SERVER['SERVER_PORT'] = 443;
+}
+
 // 4. Load Laravel app and enforce fallback config
 define('LARAVEL_START', microtime(true));
 
