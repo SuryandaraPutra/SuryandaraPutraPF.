@@ -46,8 +46,10 @@ class ProfileController extends Controller
             'whatsapp' => 'nullable|string',
         ]);
 
-        if ($request->hasFile('photo')) {
-            if ($profile->photo_path) {
+        if ($request->filled('photo_url')) {
+            $profile->photo_path = trim($request->photo_url);
+        } elseif ($request->hasFile('photo')) {
+            if ($profile->photo_path && !\Illuminate\Support\Str::startsWith($profile->photo_path, ['http://', 'https://'])) {
                 Storage::disk('public')->delete($profile->photo_path);
             }
             $photoPath = $request->file('photo')->store('profiles', 'public');

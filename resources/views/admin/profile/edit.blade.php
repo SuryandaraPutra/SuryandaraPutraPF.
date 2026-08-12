@@ -58,11 +58,17 @@
         <!-- Upload Foto Profil Hero & File CV -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800 space-y-3">
-                <label class="block text-xs font-bold uppercase text-slate-300">Unggah Foto Profil Utama (JPG/PNG/WEBP, Max 2MB)</label>
+                <label class="block text-xs font-bold uppercase text-slate-300">Unggah File Foto Profil (JPG/PNG/WEBP)</label>
                 <input type="file" name="photo" accept="image/*" class="block w-full text-xs text-slate-400 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-brand-600 file:text-white hover:file:bg-brand-500">
+                
+                <div class="pt-2">
+                    <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Atau Tempel Link/URL Foto Langsung (https://...)</label>
+                    <input type="url" name="photo_url" value="{{ old('photo_url', \Illuminate\Support\Str::startsWith($profile->photo_path, ['http://', 'https://']) ? $profile->photo_path : '') }}" placeholder="https://..." class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-xs focus:outline-none focus:ring-1 focus:ring-brand-500">
+                </div>
+
                 @if($profile->photo_path)
                 <div class="flex items-center gap-3 pt-2">
-                    <img src="{{ asset('storage/' . $profile->photo_path) }}" alt="Foto Profile" class="w-12 h-12 rounded-xl object-cover border border-slate-700">
+                    <img src="{{ \Illuminate\Support\Str::startsWith($profile->photo_path, ['http://', 'https://']) ? $profile->photo_path : asset('storage/' . $profile->photo_path) }}" alt="Foto Profile" class="w-12 h-12 rounded-xl object-cover border border-slate-700">
                     <span class="text-xs text-emerald-400 flex items-center gap-1 font-mono">
                         <i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Foto Aktif Tersimpan
                     </span>

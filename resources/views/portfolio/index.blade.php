@@ -57,7 +57,7 @@
                     <div class="relative glass rounded-3xl p-6 text-center shadow-2xl">
                         <div class="w-32 h-32 mx-auto rounded-2xl bg-gradient-to-tr from-slate-800 to-slate-900 border-2 border-slate-700 flex items-center justify-center shadow-inner mb-4 overflow-hidden">
                             @if($profile->photo_path)
-                                <img src="{{ asset('storage/' . $profile->photo_path) }}" alt="{{ $profile->full_name }}" class="w-full h-full object-cover">
+                                <img src="{{ \Illuminate\Support\Str::startsWith($profile->photo_path, ['http://', 'https://']) ? $profile->photo_path : asset('storage/' . $profile->photo_path) }}" alt="{{ $profile->full_name }}" class="w-full h-full object-cover">
                             @else
                                 <span class="font-heading font-black text-4xl text-brand-400">SP</span>
                             @endif
