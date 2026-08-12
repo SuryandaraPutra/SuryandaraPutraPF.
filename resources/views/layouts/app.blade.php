@@ -95,10 +95,6 @@
                         <i data-lucide="download" class="w-3.5 h-3.5"></i>
                         Download CV
                     </a>
-
-                    <a href="{{ route('login') }}" class="p-2 text-xs font-medium text-slate-500 hover:text-brand-500" title="Admin Login">
-                        <i data-lucide="lock" class="w-4 h-4"></i>
-                    </a>
                 </div>
             </div>
         </nav>
