@@ -24,11 +24,18 @@ class PublicPortfolioController extends Controller
 
     public function downloadCv()
     {
+        // Try direct file in public/ first (Vercel compatible)
+        $publicCv = public_path('CV_Suryandara_Putra.pdf');
+        if (file_exists($publicCv)) {
+            return response()->download($publicCv, 'CV_Suryandara_Putra.pdf');
+        }
+
+        // Fallback: try from storage
         $profile = Profile::first();
         if ($profile && $profile->cv_pdf_path && file_exists(storage_path('app/public/' . $profile->cv_pdf_path))) {
             return response()->download(storage_path('app/public/' . $profile->cv_pdf_path), 'CV_Suryandara_Putra.pdf');
         }
 
-        return redirect()->back()->with('error', 'File CV belum diunggah di admin panel.');
+        return redirect()->back()->with('error', 'File CV belum diunggah.');
     }
 }
