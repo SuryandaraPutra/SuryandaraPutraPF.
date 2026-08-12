@@ -43,7 +43,7 @@ $forcedEnvs = [
     'DB_CONNECTION' => 'sqlite',
     'DB_DATABASE' => $targetDb,
     'CACHE_STORE' => 'array',
-    'SESSION_DRIVER' => 'file',
+    'SESSION_DRIVER' => 'cookie',
     'QUEUE_CONNECTION' => 'sync',
     'FILESYSTEM_DISK' => 'local',
     'LOG_CHANNEL' => 'stderr',
@@ -73,7 +73,7 @@ $app->booted(function ($app) use ($targetDb) {
     $config = $app->make('config');
 
     if (empty($config->get('session.driver'))) {
-        $config->set('session.driver', 'file');
+        $config->set('session.driver', 'cookie');
     }
     if (empty($config->get('cache.default'))) {
         $config->set('cache.default', 'array');
