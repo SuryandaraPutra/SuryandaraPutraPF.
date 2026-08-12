@@ -27,32 +27,26 @@ if (file_exists($sourceDb) && filesize($sourceDb) > 0 && !file_exists($targetDb)
 }
 
 // 3. Set environment variables & fallbacks for serverless execution
-if (!getenv('APP_KEY')) {
-    putenv('APP_KEY=base64:0gIjhUzEZGNJSGIGJ4erCORNUWrFW8bw+U1JWpZzIUA=');
-    $_ENV['APP_KEY'] = 'base64:0gIjhUzEZGNJSGIGJ4erCORNUWrFW8bw+U1JWpZzIUA=';
-    $_SERVER['APP_KEY'] = 'base64:0gIjhUzEZGNJSGIGJ4erCORNUWrFW8bw+U1JWpZzIUA=';
+$envs = [
+    'APP_ENV' => getenv('APP_ENV') ?: 'production',
+    'APP_DEBUG' => getenv('APP_DEBUG') ?: 'true',
+    'APP_KEY' => getenv('APP_KEY') ?: 'base64:0gIjhUzEZGNJSGIGJ4erCORNUWrFW8bw+U1JWpZzIUA=',
+    'APP_STORAGE_PATH' => '/tmp/storage',
+    'VIEW_COMPILED_PATH' => '/tmp/storage/framework/views',
+    'APP_SERVICES_CACHE' => '/tmp/bootstrap/cache/services.php',
+    'APP_PACKAGES_CACHE' => '/tmp/bootstrap/cache/packages.php',
+    'DB_CONNECTION' => 'sqlite',
+    'DB_DATABASE' => $targetDb,
+    'CACHE_STORE' => 'array',
+    'SESSION_DRIVER' => 'cookie',
+    'LOG_CHANNEL' => 'stderr',
+];
+
+foreach ($envs as $key => $val) {
+    putenv("{$key}={$val}");
+    $_ENV[$key] = $val;
+    $_SERVER[$key] = $val;
 }
-
-putenv('APP_STORAGE_PATH=/tmp/storage');
-putenv('VIEW_COMPILED_PATH=/tmp/storage/framework/views');
-putenv('DB_CONNECTION=sqlite');
-putenv('DB_DATABASE=' . $targetDb);
-putenv('CACHE_STORE=array');
-putenv('SESSION_DRIVER=cookie');
-
-$_ENV['APP_STORAGE_PATH'] = '/tmp/storage';
-$_ENV['VIEW_COMPILED_PATH'] = '/tmp/storage/framework/views';
-$_ENV['DB_CONNECTION'] = 'sqlite';
-$_ENV['DB_DATABASE'] = $targetDb;
-$_ENV['CACHE_STORE'] = 'array';
-$_ENV['SESSION_DRIVER'] = 'cookie';
-
-$_SERVER['APP_STORAGE_PATH'] = '/tmp/storage';
-$_SERVER['VIEW_COMPILED_PATH'] = '/tmp/storage/framework/views';
-$_SERVER['DB_CONNECTION'] = 'sqlite';
-$_SERVER['DB_DATABASE'] = $targetDb;
-$_SERVER['CACHE_STORE'] = 'array';
-$_SERVER['SESSION_DRIVER'] = 'cookie';
 
 // 4. Require standard Laravel entry point
 require __DIR__ . '/../public/index.php';
