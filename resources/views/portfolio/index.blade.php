@@ -55,7 +55,7 @@
                 <div class="relative group">
                     <div class="absolute -inset-1 bg-gradient-to-r from-brand-600 via-purple-600 to-pink-600 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
                     <div class="relative glass rounded-3xl p-6 text-center shadow-2xl">
-                        <div class="w-32 h-32 mx-auto rounded-2xl bg-gradient-to-tr from-slate-800 to-slate-900 border-2 border-slate-700 flex items-center justify-center shadow-inner mb-4 overflow-hidden">
+                        <div class="w-48 h-48 mx-auto rounded-2xl bg-gradient-to-tr from-slate-800 to-slate-900 border-2 border-slate-700 flex items-center justify-center shadow-inner mb-4 overflow-hidden">
                             @if($profile->photo_path)
                                 @php
                                     $photoSrc = $profile->photo_path;
