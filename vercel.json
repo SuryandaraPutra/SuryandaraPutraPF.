@@ -28,10 +28,13 @@
     "buildCommand": "npm run build",
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "true",
+        "APP_DEBUG": "false",
         "APP_KEY": "base64:0gIjhUzEZGNJSGIGJ4erCORNUWrFW8bw+U1JWpZzIUA=",
+        "DB_CONNECTION": "sqlite",
         "CACHE_STORE": "array",
-        "SESSION_DRIVER": "cookie",
+        "SESSION_DRIVER": "file",
+        "QUEUE_CONNECTION": "sync",
+        "FILESYSTEM_DISK": "local",
         "LOG_CHANNEL": "stderr"
     }
 }
