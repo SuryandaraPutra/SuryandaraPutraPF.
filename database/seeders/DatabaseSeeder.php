@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
             'phone' => '(+62) 857-1028-9368',
             'location' => 'Depok, Jawa Barat',
             'gpa' => '3.84 / 4.00',
-            'photo_path' => 'profiles/suryandara.png',
+            'photo_path' => 'https://drive.google.com/uc?export=view&id=1FIrI8gS64g5Nf1eoMGzlSfodlrtmYUKN',
             'social_links' => [
                 'instagram' => 'https://instagram.com/andr.rwa',
                 'github' => 'https://github.com',
