@@ -42,7 +42,8 @@ $forcedEnvs = [
     'APP_MAINTENANCE_DRIVER' => 'file',
     'DB_CONNECTION' => 'sqlite',
     'DB_DATABASE' => $targetDb,
-    'HASH_DRIVER' => 'argon2id',
+    'HASH_DRIVER' => 'bcrypt',
+    'BCRYPT_ROUNDS' => '10',
     'CACHE_STORE' => 'array',
     'SESSION_DRIVER' => 'cookie',
     'QUEUE_CONNECTION' => 'sync',
@@ -77,8 +78,9 @@ $app->booted(function ($app) use ($targetDb) {
         $config->set('session.driver', 'cookie');
     }
     if (empty($config->get('hashing.driver'))) {
-        $config->set('hashing.driver', 'argon2id');
+        $config->set('hashing.driver', 'bcrypt');
     }
+    $config->set('hashing.bcrypt.rounds', 10);
     if (empty($config->get('cache.default'))) {
         $config->set('cache.default', 'array');
     }
