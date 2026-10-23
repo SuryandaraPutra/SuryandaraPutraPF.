@@ -68,6 +68,19 @@ class DatabaseSeeder extends Seeder
         // 4. Experience Data
         Experience::truncate();
         Experience::create([
+            'title' => 'Cybersecurity & IoT Intern',
+            'organization' => 'Kementerian Pertahanan RI (Pusat Siber dan Intelijen Teknologi Pertahanan)',
+            'role_type' => 'Magang',
+            'period' => 'Juni – Agustus 2026 (3 Bulan)',
+            'bullets' => [
+                'Melaksanakan program magang selama 3 bulan di divisi Cybersecurity pada Pusat Siber dan Intelijen Teknologi Pertahanan (Pussiber Kemhan RI)',
+                'Merancang dan membangun purwarupa Smart Lock pintu ruang forensik digital berbasis mikrokontroler ESP32 dan RFID RC522 untuk pengamanan akses fisik ruang steril investigasi siber',
+                'Mengembangkan sistem otentikasi UID kartu RFID dan kontrol relay solenoid lock 12V dengan waktu respons verifikasi cepat (<2 detik)',
+                'Menyusun dokumen analisis sistem berjalan, use case & activity diagram UML, serta laporan teknis pengujian purwarupa perangkat keras',
+            ],
+            'order' => 1,
+        ]);
+        Experience::create([
             'title' => 'Volunteer Refreshment (Full Marathon)',
             'organization' => 'BTN Jakarta International Marathon (JAKIM)',
             'role_type' => 'Volunteer',
@@ -77,7 +90,7 @@ class DatabaseSeeder extends Seeder
                 'Menjaga kesiapan, kebersihan, dan kelancaran alur pasokan di stasiun hidrasi (water station) agar peserta tidak terhambat',
                 'Memberikan dukungan moril (cheering) serta berkoordinasi cepat dengan tim medis dan relawan lintasan jika terjadi insiden pelari',
             ],
-            'order' => 1,
+            'order' => 2,
         ]);
         Experience::create([
             'title' => 'Crew Runner (Operasional Event)',
@@ -89,7 +102,7 @@ class DatabaseSeeder extends Seeder
                 'Melakukan koordinasi dinamis antar pos dan race management untuk memastikan seluruh kebutuhan lomba terpenuhi tepat waktu',
                 'Membantu penyelesaian kendala teknis dan permintaan darurat perlengkapan di lapangan secara tanggap dan disiplin',
             ],
-            'order' => 2,
+            'order' => 3,
         ]);
         Experience::create([
             'title' => 'Volunteer Crew Event',
@@ -101,7 +114,7 @@ class DatabaseSeeder extends Seeder
                 'Membantu peserta mengatasi kendala registrasi atau perubahan data',
                 'Mengelola alur registrasi dan memastikan kelancaran antrean',
             ],
-            'order' => 3,
+            'order' => 4,
         ]);
         Experience::create([
             'title' => 'Volunteer Saksi Pemilu',
@@ -113,7 +126,7 @@ class DatabaseSeeder extends Seeder
                 'Bekerja dalam tim dengan koordinasi yang baik di bawah tekanan waktu',
                 'Melatih kemampuan komunikasi, tanggung jawab, dan pengambilan keputusan',
             ],
-            'order' => 4,
+            'order' => 5,
         ]);
         Experience::create([
             'title' => 'Magang Toko Lareeza Fashion',
@@ -125,11 +138,33 @@ class DatabaseSeeder extends Seeder
                 'Membantu meningkatkan engagement melalui interaksi media sosial',
                 'Berkolaborasi dengan tim menentukan produk unggulan setiap periode',
             ],
-            'order' => 5,
+            'order' => 6,
         ]);
 
         // 5. Project Data
         Project::truncate();
+        Project::create([
+            'title' => 'Purwarupa Smart Lock Pintu Ruang Forensik (ESP32 & RFID)',
+            'slug' => 'smart-lock-esp32-rfid-forensik',
+            'category' => 'IoT & Cybersecurity',
+            'role' => 'IoT & Security Hardware Lead',
+            'period' => 'Agustus 2026',
+            'summary' => 'Proyek akhir magang di Pusat Siber dan Intelijen Teknologi Pertahanan, Kementerian Pertahanan RI. Merancang purwarupa smart lock pintu ruang forensik digital berbasis mikrokontroler ESP32 dan modul RFID RC522 untuk mengamankan akses fisik ruang investigasi siber dan integritas bukti digital.',
+            'problem_statement' => 'Akses konvensional ke ruang forensik digital rentan kehilangan kunci fisik dan tidak memiliki mekanisme pembatasan akses ketat untuk menjaga chain of custody barang bukti digital.',
+            'solution' => 'Mengembangkan sistem keamanan akses pintu cerdas berbasis otentikasi UID kartu RFID dengan ESP32 dan relay solenoid lock 12V yang membuka pintu dalam waktu kurang dari 2 detik secara otomatis.',
+            'key_features' => [
+                'Otentikasi Kartu RFID Cepat & Aman (<2 detik)',
+                'Mikrokontroler ESP32 DevKit V1 & Modul RC522',
+                'Kontrol Otomatis Relay 5V & Solenoid Door Lock 12V',
+                'Perancangan Wiring & Pemodelan UML (Use Case & Activity)',
+            ],
+            'tech_stack' => ['ESP32', 'RFID RC522', 'C/C++', 'Arduino IDE', 'IoT Security', 'Relay Module', 'Solenoid Lock'],
+            'demo_url' => null,
+            'github_url' => 'https://github.com/SuryandaraPutra',
+            'is_featured' => true,
+            'order' => 1,
+        ]);
+
         Project::create([
             'title' => 'Perancangan UI/UX Aplikasi Antrean Berobat (HealthFlow)',
             'slug' => 'healthflow-ui-ux',
@@ -149,7 +184,7 @@ class DatabaseSeeder extends Seeder
             'demo_url' => 'https://figma.com',
             'github_url' => 'https://github.com',
             'is_featured' => true,
-            'order' => 1,
+            'order' => 2,
         ]);
 
         Project::create([
@@ -171,14 +206,15 @@ class DatabaseSeeder extends Seeder
             'demo_url' => null,
             'github_url' => 'https://github.com',
             'is_featured' => true,
-            'order' => 2,
+            'order' => 3,
         ]);
 
         // 6. Skill Data
         Skill::truncate();
         $skills = [
-            // Development Tools
-            ['name' => 'Laravel', 'category' => 'Development Tools', 'proficiency' => 90, 'icon' => 'code'],
+            // Development & Hardware Tools
+            ['name' => 'ESP32 & Arduino IDE (IoT Security)', 'category' => 'Development Tools', 'proficiency' => 90, 'icon' => 'cpu'],
+            ['name' => 'Laravel & PHP', 'category' => 'Development Tools', 'proficiency' => 90, 'icon' => 'code'],
             ['name' => 'Visual Studio Code', 'category' => 'Development Tools', 'proficiency' => 95, 'icon' => 'terminal'],
             ['name' => 'MySQL Workbench', 'category' => 'Development Tools', 'proficiency' => 88, 'icon' => 'database'],
             ['name' => 'Laragon', 'category' => 'Development Tools', 'proficiency' => 90, 'icon' => 'server'],

@@ -22,6 +22,10 @@
 
                 <!-- Key Metrics Pills -->
                 <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-8 text-xs font-semibold text-slate-600 dark:text-slate-400">
+                    <div class="glass px-3.5 py-2 rounded-xl flex items-center gap-1.5 border border-emerald-500/20">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
+                        <span>Ex-Intern Kemhan (Cybersecurity)</span>
+                    </div>
                     <div class="glass px-3.5 py-2 rounded-xl flex items-center gap-1.5">
                         <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-500"></i>
                         <span>BSI Margonda (IPK {{ $profile->gpa ?? '3.84/4.00' }})</span>
@@ -255,7 +259,7 @@
             <p class="text-slate-500 dark:text-slate-400 text-sm">Proyek akademik & rancangan sistem dengan pendekatan metodis & terstruktur</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             @foreach($projects as $project)
             <div class="glass rounded-3xl p-6 sm:p-8 flex flex-col justify-between hover:scale-[1.01] transition-all duration-300 shadow-xl border border-slate-200/60 dark:border-slate-800 group">
                 <div>
