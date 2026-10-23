@@ -11,6 +11,11 @@
             
             <!-- Left Info Column -->
             <div class="flex-1 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-semibold mb-4 backdrop-blur-md">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>Terbuka untuk Peluang Kerja & Magang</span>
+                </div>
+
                 <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-4">
                     Halo, Saya <br class="hidden sm:block"/>
                     <span class="text-gradient">{{ $profile->full_name ?? 'SURYANDARA PUTRA' }}</span>

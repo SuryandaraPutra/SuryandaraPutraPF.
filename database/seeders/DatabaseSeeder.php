@@ -30,8 +30,8 @@ class DatabaseSeeder extends Seeder
         Profile::create([
             'full_name' => 'SURYANDARA PUTRA',
             'title' => 'Mahasiswa Teknologi Informasi — Semester 7',
-            'subtitle' => 'Target Magang: September 2026 | BSI Kampus Margonda (IPK 3.84/4.00)',
-            'about_me' => 'Mahasiswa aktif Semester 7 Program Studi Teknologi Informasi di Universitas Bina Sarana Informatika, Kampus Margonda, dengan minat dan kompetensi luas di bidang teknologi informasi. Terbiasa mengelola data dan administrasi secara sistematis, serta memanfaatkan aplikasi perkantoran dan kolaborasi digital dalam mendukung pekerjaan. Memiliki pendekatan kerja yang analitis, komunikatif, dan adaptif, disiplin dalam manajemen waktu, serta berorientasi untuk terus mengembangkan pengetahuan dan keterampilan di lingkungan kerja yang dinamis. Saat ini mencari kesempatan magang pada bulan September untuk menerapkan ilmu yang telah dipelajari di lingkungan profesional.',
+            'subtitle' => 'Terbuka untuk Peluang Kerja & Magang | BSI Kampus Margonda (IPK 3.84/4.00)',
+            'about_me' => 'Mahasiswa aktif Semester 7 Program Studi Teknologi Informasi di Universitas Bina Sarana Informatika, Kampus Margonda, dengan minat dan kompetensi luas di bidang teknologi informasi. Terbiasa mengelola data dan administrasi secara sistematis, serta memanfaatkan aplikasi perkantoran dan kolaborasi digital dalam mendukung pekerjaan. Memiliki pendekatan kerja yang analitis, komunikatif, dan adaptif, disiplin dalam manajemen waktu, serta berorientasi untuk terus mengembangkan pengetahuan dan keterampilan di lingkungan kerja yang dinamis. Saat ini aktif dan terbuka mencari kesempatan kerja maupun magang untuk menerapkan ilmu serta berkontribusi secara nyata di lingkungan profesional.',
             'email' => 'andraalputra21@gmail.com',
             'phone' => '(+62) 857-1028-9368',
             'location' => 'Depok, Jawa Barat',
