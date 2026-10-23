@@ -68,6 +68,30 @@ class DatabaseSeeder extends Seeder
         // 4. Experience Data
         Experience::truncate();
         Experience::create([
+            'title' => 'Volunteer Refreshment (Full Marathon)',
+            'organization' => 'BTN Jakarta International Marathon (JAKIM)',
+            'role_type' => 'Volunteer',
+            'period' => '2026',
+            'bullets' => [
+                'Melayani dan mendistribusikan kebutuhan refreshment (air mineral, isotonik, buah, spon) untuk ribuan pelari kategori Full Marathon',
+                'Menjaga kesiapan, kebersihan, dan kelancaran alur pasokan di stasiun hidrasi (water station) agar peserta tidak terhambat',
+                'Memberikan dukungan moril (cheering) serta berkoordinasi cepat dengan tim medis dan relawan lintasan jika terjadi insiden pelari',
+            ],
+            'order' => 1,
+        ]);
+        Experience::create([
+            'title' => 'Crew Runner (Operasional Event)',
+            'organization' => 'Livin by Mandiri',
+            'role_type' => 'Event Crew',
+            'period' => '2026',
+            'bullets' => [
+                'Bertanggung jawab dalam mobilitas logistik dan pengantaran perlengkapan operasional acara secara cepat dan sigap di area lintasan/venue',
+                'Melakukan koordinasi dinamis antar pos dan race management untuk memastikan seluruh kebutuhan lomba terpenuhi tepat waktu',
+                'Membantu penyelesaian kendala teknis dan permintaan darurat perlengkapan di lapangan secara tanggap dan disiplin',
+            ],
+            'order' => 2,
+        ]);
+        Experience::create([
             'title' => 'Volunteer Crew Event',
             'organization' => 'BCA Expoversary',
             'role_type' => 'Volunteer',
@@ -77,7 +101,7 @@ class DatabaseSeeder extends Seeder
                 'Membantu peserta mengatasi kendala registrasi atau perubahan data',
                 'Mengelola alur registrasi dan memastikan kelancaran antrean',
             ],
-            'order' => 1,
+            'order' => 3,
         ]);
         Experience::create([
             'title' => 'Volunteer Saksi Pemilu',
@@ -89,7 +113,7 @@ class DatabaseSeeder extends Seeder
                 'Bekerja dalam tim dengan koordinasi yang baik di bawah tekanan waktu',
                 'Melatih kemampuan komunikasi, tanggung jawab, dan pengambilan keputusan',
             ],
-            'order' => 2,
+            'order' => 4,
         ]);
         Experience::create([
             'title' => 'Magang Toko Lareeza Fashion',
@@ -101,7 +125,7 @@ class DatabaseSeeder extends Seeder
                 'Membantu meningkatkan engagement melalui interaksi media sosial',
                 'Berkolaborasi dengan tim menentukan produk unggulan setiap periode',
             ],
-            'order' => 3,
+            'order' => 5,
         ]);
 
         // 5. Project Data

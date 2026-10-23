@@ -217,7 +217,15 @@
                 <div class="glass rounded-2xl p-6 hover:border-brand-500/50 transition-all shadow-md">
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
                         <h3 class="font-heading font-bold text-lg text-slate-900 dark:text-slate-100">{{ $exp->title }}</h3>
-                        <span class="px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-[11px] font-semibold">{{ $exp->role_type }}</span>
+                        @php
+                            $badgeColor = match($exp->role_type) {
+                                'Magang' => 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+                                'Event Crew' => 'bg-amber-500/10 text-amber-600 dark:text-amber-400',
+                                'Work' => 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
+                                default => 'bg-purple-500/10 text-purple-600 dark:text-purple-400',
+                            };
+                        @endphp
+                        <span class="px-2.5 py-0.5 rounded-full {{ $badgeColor }} text-[11px] font-semibold">{{ $exp->role_type }}</span>
                     </div>
 
                     <h4 class="text-sm font-semibold text-brand-500 mb-4">{{ $exp->organization }}</h4>
