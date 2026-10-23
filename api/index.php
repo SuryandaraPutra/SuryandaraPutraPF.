@@ -21,8 +21,10 @@ foreach ($storageDirs as $dir) {
 $sourceDb = __DIR__ . '/../database/database.sqlite';
 $targetDb = '/tmp/database.sqlite';
 
-if (file_exists($sourceDb) && filesize($sourceDb) > 0 && !file_exists($targetDb)) {
-    copy($sourceDb, $targetDb);
+if (file_exists($sourceDb) && filesize($sourceDb) > 0) {
+    if (!file_exists($targetDb) || filemtime($sourceDb) > filemtime($targetDb) || filesize($targetDb) !== filesize($sourceDb)) {
+        copy($sourceDb, $targetDb);
+    }
 } elseif (!file_exists($targetDb)) {
     touch($targetDb);
 }
